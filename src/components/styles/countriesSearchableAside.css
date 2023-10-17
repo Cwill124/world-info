@@ -1,8 +1,18 @@
 .country-list {
-  border: 1px solid black;
-  color: white;
-  background-color: grey;
-  padding: 0.5rem;
-  width: 50%;
-  height: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 50px); /* Adjust height as needed */
+  width: fit-content;
+  padding: 0%;
+  margin: 0%;
+}
+.country {
+  padding: 0;
+  margin: 0;
+}
+.country:hover {
+  background-color: #f1f1f1;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }

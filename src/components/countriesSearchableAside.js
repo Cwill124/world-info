@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import "./styles/countriesSearchableAside.css";
 
-export default function CountriesSearchableAside() {
+export default function CountriesSearchableAside(props) {
   const [countries, setCountries] = useState([]);
   const [orginalCountries, setOrginalCountries] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  
   useEffect(() => {
     fetchCountries();
   }, []);
@@ -27,18 +28,19 @@ export default function CountriesSearchableAside() {
     var filteredCountries = orginalCountries.filter((country) =>
       country.toLowerCase().includes(searchValue.toLowerCase())
     );
-
-    
     setCountries(filteredCountries);
+  }
+  function handleSelection(event) {
+    props.onSelection(event.target.innerText)
   }
   return (
     <div>
       <input type="text" placeholder="Search..." onChange={(event) => setSearchValue(event.target.value)}/>
-      <p className="country-list">
+      <div className="country-list">
         {countries.map((country) => (
-          <li key={country}>{country}</li>
+          <li className="country" key={country} onClick={handleSelection}>{country}</li>
         ))}
-      </p>
+      </div>
     </div>
   );
 }
