@@ -35,7 +35,7 @@ export default function CountriesSearchableAside(props) {
   }
   return (
     <div>
-      <input type="text" placeholder="Search..." onChange={(event) => setSearchValue(event.target.value)}/>
+      <input className="search-input" type="text" placeholder="Search..." onChange={(event) => setSearchValue(event.target.value)}/>
       <div className="country-list">
         {countries.map((country) => (
           <li className="country" key={country} onClick={handleSelection}>{country}</li>

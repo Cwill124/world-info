@@ -23,12 +23,27 @@ export default function CountryInfo(props) {
       {countryInfo === undefined ? (
         <p>Select a country</p>
       ) : (
-        <div>
-          <h1>{countryInfo.name.common}</h1>
-          <p>Capital: {countryInfo.capital}</p>
-          <p>Region: {countryInfo.region}</p>
+        <>
+        <h1>{countryInfo.name.common}</h1>
+        <div className="flag">
+            <img src={countryInfo.flags.png} alt="flag"/>
+          </div>
+          <div>
           
-        </div>
+          </div>
+          <div className="country-info-details">
+            <p>Offical Name: {countryInfo.name.official}</p>
+            <p>Region: {countryInfo.region}</p>
+            <p>Subregion: {countryInfo.subregion}</p>
+            <p>Capital: {countryInfo.capital}</p>
+            <p>Population: {countryInfo.population}</p>
+            <p>Area: {countryInfo.area} km²</p>
+            <p>Timezones: {countryInfo.timezones}</p>
+            <p>UN member: {countryInfo.unMember}</p>
+          </div>  
+          
+          
+        </>
       )}
     </div>
   );
